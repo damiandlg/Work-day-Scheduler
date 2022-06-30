@@ -30,6 +30,27 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Create Event</h5>
+          </div>
+
+          <div class="modal-body" id="modalBody">
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping">Event Name</span>
+              <input type="text" class="form-control" placeholder="My event name..." aria-label="My event Name" aria-describedby="addon-wrapping">
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button id="generate" type="button" data-bs-dismiss="modal" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="container">
       <!-- Timeblocks go here -->
       <ul id= "timeBlock" class="list-group">    
