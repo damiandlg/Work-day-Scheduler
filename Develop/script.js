@@ -87,9 +87,7 @@ class AppState {
 
     generateTimeSlots() {
         for(let i=9; i<=17; i++) {
-            //For submission remember to pass this.currentDate.getHours() 
-            //into our TimeSlot class instead of dummy data
-            const timeSlot = new TimeSlot(i, this,this.currentDate.getHours ())
+            const timeSlot = new TimeSlot(i, this.currentDate.getHours())
             this.timeSlots[timeSlot.timeSlotId] = timeSlot
         }
     }
@@ -187,10 +185,11 @@ function getAppState() {
         return load(savedState, date)
     }
 }
-
+    //converts class into string so we can store it
 function store() {
     const json = JSON.stringify(state).toString()
     localStorage.setItem('appState', json)
+    
 }
 
 function load(savedState, date) {
@@ -205,7 +204,7 @@ function load(savedState, date) {
     //Load time slots as TimeSlot class
      Object.entries(newState.timeSlots).forEach(([key, value]) => {
         //create new timeSlot instance from json values
-        const timeSlot = new TimeSlot(value.hour, value.time)
+        const timeSlot = new TimeSlot(value.hour, date.getHours())
 
         //if calEvents exist load up data
         const event = value.calEvent
